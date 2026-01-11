@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container" id="app">
+        <h1>Screen Recorder</h1>
+
+        <video id="preview" autoplay></video>
+    
+        <div class="group">
+            <label for="codecSelect">Kodek a formát</label>
+            <select id="codecSelect"></select>
+        </div>
+    
+        <div class="group">
+            <label for="qualitySelect">Cílová kvalita (Bitrate)</label>
+            <select id="qualitySelect">
+                <option value="2500000">Standard (2.5 Mbps)</option>
+                <option value="6000000" selected>Vysoká (6 Mbps)</option>
+                <option value="12000000">Ultra (12 Mbps)</option>
+            </select>
+        </div>
+    
+        <div class="controls">
+            <button id="startBtn">Spustit nahrávání</button>
+            <button id="stopBtn" disabled>Zastavit</button>
+        </div>
+    
+        <div id="status">● Probíhá nahrávání přímo na disk...</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
