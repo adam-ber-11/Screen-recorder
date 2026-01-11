@@ -9,7 +9,7 @@ const preview = document.getElementById('preview');
 let mediaRecorder;
 let writableStream;
 
-// 1. Detekce kodeků při načtení
+// 1. Detect available codecs
 function init() {
     const types = [
         'video/webm;codecs=vp9,opus',
@@ -28,7 +28,7 @@ function init() {
     });
 }
 
-// 2. Hlavní funkce nahrávání
+// 2. Main function for recording
 async function startRecording() {
     try {
         const stream = await navigator.mediaDevices.getDisplayMedia({
@@ -38,13 +38,13 @@ async function startRecording() {
 
         preview.srcObject = stream;
 
-        // Nastavení pro ostrost (Content Hint)
+        // Prefer video sharpness (Content Hint)
         const videoTrack = stream.getVideoTracks()[0];
         if ('contentHint' in videoTrack) videoTrack.contentHint = 'detail';
 
-        // Výběr souboru na disku (File System Access API)
+        // Select file (File System Access API)
         const handle = await window.showSaveFilePicker({
-            suggestedName: `nahravka-${Date.now()}.webm`,
+            suggestedName: `recording-${Date.now()}.webm`,
             types: [{ description: 'Video File', accept: { 'video/webm': ['.webm'] } }]
         });
         writableStream = await handle.createWritable();
@@ -76,8 +76,8 @@ async function startRecording() {
         stopBtn.disabled = false;
 
     } catch (err) {
-        console.error("Chyba:", err);
-        alert("Nahrávání nebylo spuštěno (možná jste zrušili výběr).");
+        console.error("Error:", err);
+        alert("Recording was not started.");
     }
 }
 
