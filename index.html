@@ -15,25 +15,25 @@
         <video id="preview" autoplay></video>
     
         <div class="group">
-            <label for="codecSelect">Kodek a formát</label>
+            <label for="codecSelect">Codec and format</label>
             <select id="codecSelect"></select>
         </div>
     
         <div class="group">
-            <label for="qualitySelect">Cílová kvalita (Bitrate)</label>
+            <label for="qualitySelect">Target quality (Bitrate)</label>
             <select id="qualitySelect">
                 <option value="2500000">Standard (2.5 Mbps)</option>
-                <option value="6000000" selected>Vysoká (6 Mbps)</option>
+                <option value="6000000" selected>High (6 Mbps)</option>
                 <option value="12000000">Ultra (12 Mbps)</option>
             </select>
         </div>
     
         <div class="controls">
-            <button id="startBtn">Spustit nahrávání</button>
-            <button id="stopBtn" disabled>Zastavit</button>
+            <button id="startBtn">Start recording</button>
+            <button id="stopBtn" disabled>Stop recording</button>
         </div>
     
-        <div id="status">● Probíhá nahrávání přímo na disk...</div>
+        <div id="status">● Recording in progress</div>
     </div>
 
     <script src="script.js"></script>
